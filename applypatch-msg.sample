@@ -1,0 +1,29 @@
+Initialize postgres-blog-engine
+
+# Conflicts:
+#	README.md
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# interactive rebase in progress; onto 4f313e3
+# Last command done (1 command done):
+#    pick 6a58e59 # Initialize postgres-blog-engine
+# No commands remaining.
+# You are currently rebasing branch 'main' on '4f313e3'.
+#
+# Changes to be committed:
+#	modified:   README.md
+#	new file:   data/sample_posts.sql
+#	new file:   docs/architecture.md
+#	new file:   docs/explain_results.md
+#	new file:   docs/jsonb_results.md
+#	new file:   docs/reflection.md
+#	new file:   docs/search_results.md
+#	new file:   queries/explain_analysis.sql
+#	new file:   queries/full_text_search.sql
+#	new file:   queries/jsonb_tag_search.sql
+#	new file:   schema/indexes.sql
+#	new file:   schema/partitioned_posts.sql
+#	new file:   schema/search_trigger.sql
+#

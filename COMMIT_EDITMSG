@@ -1,0 +1,5 @@
+CREATE INDEX IF NOT EXISTS idx_posts_search
+    ON public.posts USING GIN (search_vec);
+
+CREATE INDEX IF NOT EXISTS idx_posts_meta
+    ON public.posts USING GIN (metadata);

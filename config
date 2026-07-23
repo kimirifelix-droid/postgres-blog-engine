@@ -1,0 +1,17 @@
+-- PostgreSQL blog engine: partitioned posts table
+CREATE TABLE IF NOT EXISTS public.posts (
+    id BIGSERIAL,
+    title TEXT NOT NULL,
+    body TEXT NOT NULL,
+    metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+    search_vec TSVECTOR,
+    published_at TIMESTAMPTZ NOT NULL
+) PARTITION BY RANGE (published_at);
+
+CREATE TABLE IF NOT EXISTS public.posts_2025
+    PARTITION OF public.posts
+    FOR VALUES FROM ('2025-01-01') TO ('2026-01-01');
+
+-- Optional: keep the table ready for future yearly partitions.
+-- CREATE TABLE public.posts_2026 PARTITION OF public.posts
+-- FOR VALUES FROM ('2026-01-01') TO ('2027-01-01');

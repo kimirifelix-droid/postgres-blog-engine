@@ -1,0 +1,16 @@
+CREATE OR REPLACE FUNCTION public.update_post_search_vector()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.search_vec := to_tsvector(
+        'english',
+        COALESCE(NEW.title, '') || ' ' || COALESCE(NEW.body, '')
+    );
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_search
+BEFORE INSERT OR UPDATE OF title, body
+ON public.posts
+FOR EACH ROW
+EXECUTE FUNCTION public.update_post_search_vector();
